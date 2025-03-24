@@ -11,7 +11,7 @@ app.use('/api' , postroute)
 app.use('/user' , userRoute)
 app.use('/protect' , infoRoute)
 
-app.listen(5000 , () => {
+    app.listen(5000 , () => {
     connectDB(process.env.MONGO_URI)
     console.log('Server Is Listening on port 5000')
 })
