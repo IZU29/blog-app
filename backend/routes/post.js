@@ -1,8 +1,10 @@
 const Express = require('express')
 const router = Express.Router()
-const { getAllPost,getSinglePost,createPost } = require('../controllers/post')
+const authMiddleware = require('../middleware/auth')
+
+const { getAllPost, getSinglePost, createPost } = require('../controllers/post')
 
 router.route('/').get(getAllPost).post(createPost)
-router.route('/:id').get(getSinglePost)
+router.route('/:id').get(authMiddleware , getSinglePost)
 
 module.exports = router
