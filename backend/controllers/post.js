@@ -1,4 +1,5 @@
 const post = require('../model/post')
+const CustomError = require('../Error/CustomError')
 
 const getAllPost = async (req ,res) => {
     try{
@@ -6,7 +7,7 @@ const getAllPost = async (req ,res) => {
     res.status(200).json({getPost})
     }
     catch(error){
-    console.log(error)
+    return (next(new CustomError('Fill In all necessary credentials' , 400)))
     }
 }
 
@@ -19,7 +20,7 @@ const createPost = async (req ,res) => {
     console.log("Message Was Sent !!!")
     }
     catch(error){
-    console.log(error)
+    return (next(new CustomError('Fill In all necessary credentials' , 400)))
     }
 }
 
@@ -28,10 +29,13 @@ const getSinglePost = async (req ,res) => {
         const userId = req.params.id
         console.log(typeof userId)
         const getPost = await post.findOne({ _id : userId })
+        if(!getPost){
+        return (next(new CustomError('Not Found !!!' , 404)))
+        }
         res.status(200).json({getPost})
     }
     catch(error){
-        console.log(error)
+    return (next(new CustomError(error.message , 400)))
     }
 }
 

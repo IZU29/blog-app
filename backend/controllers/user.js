@@ -1,11 +1,17 @@
 require('dotenv').config()
+
+
 const jwt = require('jsonwebtoken')
 const User = require('../model/user')
 const bcrypt = require('bcryptjs')
+const CustomError = require('../Error/CustomError')
 
-const register = async (req ,res) => {
+const register = async (req ,res , next) => {
     try{
     const {username, email ,password} = req.body
+    if(!email || !password ||!username){
+        return (next(new CustomError('Fill In all necessary credentials' , 400)))
+    }
     const salt = await bcrypt.genSalt(10)
     const hashPassword = await bcrypt.hash(password , salt)
     const userinfo = {username , email, password : hashPassword}
@@ -14,7 +20,7 @@ const register = async (req ,res) => {
     res.status(200).json({token , user})
     }
     catch(error){
-    console.log(error)
+    // console.log(new )
     }
 }
 // const register = async (req ,res) => {
