@@ -6,6 +6,7 @@ import NavBar from './NavBar'
 import Signpage from './Signpage'
 import SignIn from './SignIn'
 import Blog from './Blog'
+import SingleBlog from './SingleBlog'
 function App() {
   const [count, setCount] = useState(0)
   const [sign , setSign] = useState(true)
@@ -25,7 +26,8 @@ function App() {
     <SignIn 
     choosePage = {choosePage}/>
     } */}
-    <Blog />
+    {/* <Blog /> */}
+    <SingleBlog />
     </>
   )
 }
