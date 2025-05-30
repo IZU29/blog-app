@@ -42,10 +42,9 @@ function App() {
     <Routes>
     <Route path="/blog" element={<Blog />} />
     <Route path="/single" element={<SingleBlog/>} />
-    <Route path="/register" element={<SignIn/>} />
-    <Route path="/login" element={<Signpage />} />
-    <Route path="/single" element={<SingleBlog/>} />
-    <Route path="/single" element={<SingleBlog/>} />
+    <Route path="/login" element={<SignIn/>} />
+    <Route path="/register" element={<Signpage />} />
+  
     </Routes>
     </Router>
     </>

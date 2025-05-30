@@ -1,4 +1,6 @@
 require('dotenv').config()
+const cors = require('cors');
+
 const express = require('express')
 const app = express()
 const postroute = require('./routes/post')
@@ -9,6 +11,7 @@ const connectDB = require('./db/connect')
 const errorHandler = require('./Error/ErrorHandler')
 
 app.use(express.json())
+app.use(cors());
 
 app.use('/api' , postroute)
 app.use('/user' , userRoute)
