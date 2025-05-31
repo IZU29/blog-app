@@ -1,8 +1,20 @@
 import React from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 const Blog = () => {
 let text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore quos impedit, optio quas, aliquid voluptatibus sit a quaerat amet soluta fuga iusto est distinctio maxime dolorum maiores? Molestias quos, modi quae repudiandae neque facilis vitae aut voluptas fugiat iusto id ratione eaque assumenda consectetur architecto suscipit minus eum. Dolorem, mollitia!"
 let maxLength = 150
+const [blogPost , setblogPost] = React.useState([]) 
+
+React.useEffect( () => {
+  const BlogList = async () => {
+    const response  =  await axios.get("http://localhost:5000/api")
+    setblogPost(response.data.getPost)
+    console.log(blogPost)
+  }
+  BlogList()
+},  [])
+console.log(blogPost)
   return (
     <div className=' w-[90%] m-auto flex flex-col'>
         <div className="flex flex-col">
