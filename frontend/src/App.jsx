@@ -41,7 +41,7 @@ function App() {
     <Router>
     <Routes>
     <Route path="/blog" element={<Blog />} />
-    <Route path="/single" element={<SingleBlog/>} />
+    <Route path="/single/:id" element={<SingleBlog/>} />
     <Route path="/login" element={<SignIn/>} />
     <Route path="/register" element={<Signpage />} />
   
