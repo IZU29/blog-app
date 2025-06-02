@@ -2,8 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 // border border-red-500 
-const Signpage = ({choosePage}) => {
-    // const navigate = useNavigate()
+const Signpage = ({choosePage , setName}) => {
+    const navigate = useNavigate()
     const [email , setEmail] = React.useState('')
     const [username , setuserName] = React.useState('')
     const [password , setPassword] = React.useState('')
@@ -13,6 +13,8 @@ const Signpage = ({choosePage}) => {
       const token = response.data.token
       localStorage.setItem('token' , token);
       console.log('Clicked !!!')
+      navigate('/blog')
+      setName(username)
     }
   return (
     <div className="flex flex-col min-h-[100vh]  w-[90%] m-auto">
