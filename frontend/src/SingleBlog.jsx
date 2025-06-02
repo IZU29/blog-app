@@ -20,6 +20,7 @@ console.log(blog)
     <div className=' w-[90%] flex flex-col m-auto'>
       <h2 className="text-[2.3rem] font-bold my-2">{blog.title}</h2>
       <p className="">{blog.content}</p>
+      <p className="font-bold text-xl my-4">{blog.author}</p>
     </div>
   )
 }

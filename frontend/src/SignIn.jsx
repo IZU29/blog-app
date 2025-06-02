@@ -1,14 +1,20 @@
-import React from 'react'
+import React , {useEffect} from 'react'
+import {useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const SignIn = ({choosePage}) => {
+const SignIn = ({ setName , choosePage }) => {
+  const navigate  = useNavigate()
   const [email , setEmail] = React.useState('')
   const [password , setPassword] = React.useState('')
+
   const handleLogin = async () => {
     const response = await axios.post('http://localhost:5000/user/login' , {email , password})
     const token = response.data.token
+    const username = response.data.user.username
     localStorage.setItem('token' , token)
-    console.log('Clicked !!!')
+    console.log(username)
+    navigate('/blog')
+    setName(username)
   }
   return (
     <div>

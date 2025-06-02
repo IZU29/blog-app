@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useState , useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, Link  } from 'react-router-dom';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -8,12 +8,17 @@ import Signpage from './Signpage'
 import SignIn from './SignIn'
 import Blog from './Blog'
 import SingleBlog from './SingleBlog'
+import Createblog from './Createblog';
 function App() {
+  const [user , setUsername] = useState('')
   const [count, setCount] = useState(0)
   const [sign , setSign] = useState(true)
   const choosePage = () => {
     setSign(prev => !prev)
     
+  }
+  const setName  = (item) => {
+    setUsername(item)
   }
   return (
     
@@ -42,9 +47,9 @@ function App() {
     <Routes>
     <Route path="/blog" element={<Blog />} />
     <Route path="/single/:id" element={<SingleBlog/>} />
-    <Route path="/login" element={<SignIn/>} />
-    <Route path="/register" element={<Signpage />} />
-  
+    <Route path="/login" element={<SignIn setName = {setName}/>} />
+    <Route path="/register" element={<Signpage  setName = {setName}/>} />
+    <Route path="/create" element={<Createblog user = {user}/>} />
     </Routes>
     </Router>
     </>

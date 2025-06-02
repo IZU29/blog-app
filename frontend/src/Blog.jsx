@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { Link , useNavigate } from 'react-router-dom'
 const Blog = () => {
-  let maxLength = 150
+  let maxLength = 30
   const [blogPost , setblogPost] = React.useState([]) 
   const navigate = useNavigate()
   React.useEffect( () => {
@@ -18,8 +18,12 @@ const Blog = () => {
     console.log(id)
     navigate(`/single/${id}`)
   }
+  const createBlog = () => {
+    navigate('/create')
+  }
   return (
     <div className=' w-[90%] m-auto flex flex-col'>
+      <button className=" bg-black text-white p-2 rounded-lg m-2" onClick={ createBlog }>Create</button>
         <div className="flex flex-col">
         <input type="text" name="" id="" className="rounded-[200px] my-4 bg-[#e3e3e3] p-2 w-[90%] self-center" placeholder='Search Blog Post'/>
         </div>
@@ -29,7 +33,7 @@ const Blog = () => {
           <div className="border border-grey my-2 w-[85%] m-auto rounded-lg p-2" key={blog._id} onClick={() => selectBlog(blog._id)}>
         <h2 className="text-2xl font-semibold truncate ">{blog.title}</h2>
         <h3 className="text-[#0500FF]">{blog.author}</h3>
-        <p className="">{blog.content.length > maxLength? blog.content.substring(0 ,maxLength) + '...': blog.content}</p>
+        <p className="">{blog.content.length > maxLength? blog.content.slice(0 ,maxLength) + '...': blog.content}</p>
       </div>
         )
       )
