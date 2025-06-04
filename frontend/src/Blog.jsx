@@ -23,16 +23,16 @@ const Blog = () => {
   }
   return (
     <div className=' w-[90%] m-auto flex flex-col'>
-      <button className=" bg-black text-white p-2 rounded-lg m-2" onClick={ createBlog }>Create</button>
+      {/* <button className=" bg- text-white p-2 rounded-lg m-2" onClick={ createBlog }>Create</button> */}
         <div className="flex flex-col">
-        <input type="text" name="" id="" className="rounded-[200px] my-4 bg-[#e3e3e3] p-2 w-[90%] self-center" placeholder='Search Blog Post'/>
+        <input type="text" name="" id="" className="rounded-[200px] my-4 border border-[#412722] outline-none p-2 w-[90%] self-center" placeholder='Search Blog Post'/>
         </div>
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
        {
         blogPost.map((blog) => (
-          <div className="border border-grey my-2 w-[85%] m-auto rounded-lg p-2" key={blog._id} onClick={() => selectBlog(blog._id)}>
+          <div className="border border-grey my-2 w-[85%]  rounded-lg p-2 cursor-pointer min-h-[120px]" key={blog._id} onClick={() => selectBlog(blog._id)}>
         <h2 className="text-2xl font-semibold truncate ">{blog.title}</h2>
-        <h3 className="text-[#0500FF]">{blog.author}</h3>
+        <h3 className="text-[#230903]">{blog.author}</h3>
         <p className="">{blog.content.length > maxLength? blog.content.slice(0 ,maxLength) + '...': blog.content}</p>
       </div>
         )

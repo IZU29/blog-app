@@ -42,8 +42,8 @@ function App() {
     // </Routes>
     // </Router>
     <>
-    <NavBar />
     <Router>
+    <NavBar />
     <Routes>
     <Route path="/blog" element={<Blog />} />
     <Route path="/single/:id" element={<SingleBlog/>} />
