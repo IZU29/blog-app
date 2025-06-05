@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import book from '../public/book.jpg'
 import {Menu , ChevronUp} from 'lucide-react'
-
+import {FaFacebook , FaInstagram , FaWhatsapp , FaSearch} from 'react-icons/fa'
 const NavBar = () => {
   const [isOpen , setIsopen] = React.useState(false)
   const [menuState , setMenustate] = React.useState(false)
@@ -27,8 +27,22 @@ const NavBar = () => {
   calcWindowsize()
   return (
     <div className="">
-    <div className=' flex justify-between  items-center min-h-8 p-2'>
-      <h2 className="text-xl font-semibold">Dairy</h2>
+      <div className="flex justify-between px-12">
+        <div className="flex items-center ">
+          <FaSearch className='text-[#412722]'/>
+        </div>
+      <div className="flex w-[10%]  ">
+        <img src={book} alt="" srcset="" className='w-[100%]  rounded-sm'/>
+      </div>
+      <div className="flex items-center justify-center text-[#412722] ">
+        <FaFacebook className='mr-2' />
+        <FaInstagram className='mr-2' />
+        <FaWhatsapp className='mr-2' />
+        
+      </div>
+      </div>
+    <div className=' flex justify-between  items-center min-h-8 p-2 border-y px-8'>
+      <h2 className="text-xl font-semibold text-[#412722]">Dairy</h2>
       <div className="md:hidden"  onClick={triggerList} >
         { isOpen?
         <ChevronUp />

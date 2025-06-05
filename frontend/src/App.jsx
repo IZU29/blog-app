@@ -9,6 +9,7 @@ import SignIn from './SignIn'
 import Blog from './Blog'
 import SingleBlog from './SingleBlog'
 import Createblog from './Createblog';
+import DiaryCalendar from './Calendar';
 function App() {
   const [user , setUsername] = useState('')
   const [count, setCount] = useState(0)
@@ -44,6 +45,7 @@ function App() {
     <>
     <Router>
     <NavBar />
+    {/* <DiaryCalendar /> */}
     <Routes>
     <Route path="/blog" element={<Blog />} />
     <Route path="/single/:id" element={<SingleBlog/>} />

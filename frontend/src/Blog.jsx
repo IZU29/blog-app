@@ -30,10 +30,10 @@ const Blog = () => {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
        {
         blogPost.map((blog) => (
-          <div className="border border-grey my-2 w-[85%]  rounded-lg p-2 cursor-pointer min-h-[120px]" key={blog._id} onClick={() => selectBlog(blog._id)}>
-        <h2 className="text-2xl font-semibold truncate ">{blog.title}</h2>
-        <h3 className="text-[#230903]">{blog.author}</h3>
-        <p className="">{blog.content.length > maxLength? blog.content.slice(0 ,maxLength) + '...': blog.content}</p>
+          <div className="border border-grey my-2 w-[100%]  rounded-lg p-2 cursor-pointer min-h-[120px]" key={blog._id} onClick={() => selectBlog(blog._id)}>
+        <h2 className="text-2xl font-semibold truncate text-[#412722]">{blog.title}</h2>
+        <h3 className="text-[#412722]">{blog.author}</h3>
+        <p className="text-[#412722]">{blog.content.length > maxLength? blog.content.slice(0 ,maxLength) + '...': blog.content}</p>
       </div>
         )
       )
