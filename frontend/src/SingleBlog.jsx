@@ -17,6 +17,7 @@ const SingleBlog = () => {
 console.log(blog)
   
   return (
+    
     <div className="p-4">
     <div className=' w-[90%] flex flex-col m-auto'>
       <h2 className="text-[2.3rem] font-bold my-2">{blog.title}</h2>
