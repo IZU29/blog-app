@@ -58,7 +58,7 @@ function App() {
     <Route path="/create" element={<Createblog user = {user}/>} />
     </Routes>
     </div>
-    <div className="w-[100%] lg:w-[30%] flex flex-col  border-red-600 p-4">
+    <div className="w-[100%] lg:w-[30%] flex flex-col border-red-600 p-4">
       <SwiperSlideshow />
       {/* <DiaryCalendar /> */}
     </div>
